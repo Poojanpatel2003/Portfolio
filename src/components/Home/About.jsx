@@ -25,7 +25,7 @@ const About = () => {
                  and I'm from <span className="yellow"> Mehsana, Gujarat</span>
                 <br />
                 <br />
-                I am currently persuing Bachelor's degree in Computer Science and Engineering in Parul University.
+                I am currently persuing Bachelor's degree in Computer Science and Engineering with AI in Parul University.
                 <br />
                 <br />
                   As a

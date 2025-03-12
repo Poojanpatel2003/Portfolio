@@ -2,18 +2,14 @@ import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-// import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-// import { CgGitFork } from "react-icons/cg";
 import {
-  // AiFillStar,
   AiOutlineHome,
   AiOutlineFundProjectionScreen,
   AiOutlineContacts
 } from "react-icons/ai";
-import { GiSkills } from "react-icons/gi"
+import { GiSkills } from "react-icons/gi";
 import { CgFileDocument } from "react-icons/cg";
-
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
@@ -36,17 +32,26 @@ function NavBar() {
       className={navColour ? "sticky" : "navbar"}
     >
       <Container>
-        
+        {/* Add your logo here */}
+        <Navbar.Brand as={Link} to="/">
+          <img
+            src="image.png"
+            alt="Logo"
+            width="50"  // Adjust width as needed
+            height="50" // Adjust height as needed
+            className="d-inline-block align-top"
+          />
+        </Navbar.Brand>
+
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
+          onClick={() => updateExpanded(expand ? false : "expanded")}
         >
           <span></span>
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
@@ -56,58 +61,28 @@ function NavBar() {
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/skillset"
-                onClick={() => updateExpanded(false)}
-              >
+              <Nav.Link as={Link} to="/skillset" onClick={() => updateExpanded(false)}>
                 <GiSkills style={{ marginBottom: "2px" }} /> Skillset
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
+              <Nav.Link as={Link} to="/project" onClick={() => updateExpanded(false)}>
+                <AiOutlineFundProjectionScreen style={{ marginBottom: "2px" }} /> Projects
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
+              <Nav.Link as={Link} to="/resume" onClick={() => updateExpanded(false)}>
                 <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/contact"
-                onClick={() => updateExpanded(false)}
-              >
+              <Nav.Link as={Link} to="/contact" onClick={() => updateExpanded(false)}>
                 <AiOutlineContacts style={{ marginBottom: "2px" }} /> Contact Me
               </Nav.Link>
             </Nav.Item>
-
-            {/* <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/19sajib/portfolio"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
-                <AiFillStar style={{ fontSize: "1.1em" }} />
-              </Button>
-            </Nav.Item> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
